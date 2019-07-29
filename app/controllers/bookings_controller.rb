@@ -10,17 +10,24 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = current_user.booking.build(booking_params)
-    # we need `restaurant_id` to asssociate booking with corresponding restaurant
+    @booking = current_user.bookings.build(booking_params)
+    authorize @booking
     @booking.save
+    if @booking.save
+      redirect_to booking_path(@booking)
+    else
+      render :new
+    end
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    authorize @booking
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:content)
+    params.require(:booking).permit(:start_date, :end_date, :bed_id)
   end
 end

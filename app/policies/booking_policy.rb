@@ -9,11 +9,14 @@ class BookingPolicy < ApplicationPolicy
     true
   end
 
-  def new?
+  def create?
     true
   end
 
-  def create?
-    true
+  def show?
+    Booking.where(id: record.id).exists?
+    # scope.where(id: record.id).exists?
+    # scope sert dans le application policy pour designer le model dans le quel on est
+    # record
   end
 end
