@@ -12,6 +12,7 @@ user1.email = 'julesriv@gmail.com'
 user1.password = 'jules123'
 user1.first_name = 'Jules'
 user1.last_name = 'Rivoire'
+user1.admin = true
 user1.save!
 puts 'user 1 created !'
 
