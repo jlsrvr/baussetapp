@@ -1,1 +1,6 @@
-<h1>Hi there buddy</h1>
+<h1>these are all the reseravtions</h1>
+<ul>
+  <% @bookings.each do |booking| %>
+    <li><%= "Bravo #{booking.user.first_name} tu dors sur le lit #{booking.bed.name}" %></li>
+  <% end %>
+</ul>
