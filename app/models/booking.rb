@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
-  has_many :beds, through: :combination
+  has_many :combinations
+  has_many :beds, through: :combinations
 
   validates :status, inclusion: { in: %w[pending accepted declined] }
   validates :start_date, presence: true
