@@ -1,9 +1,10 @@
 .home-btn {
-  background-color: #F8F6F0;
+  background-color: #F7E6C7;
   border: 3px solid #256791;
   border-radius: 10px;
   display: flex;
-  margin: auto;
+  align-items: center;
+  justify-content: space-around;
 }
 
 a.btn.home-btn {
