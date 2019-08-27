@@ -1,6 +1,6 @@
 class Bed < ApplicationRecord
   belongs_to :location
-  has_many :bookings
+  has_many :bookings, through: :combination
 
   validates :location, presence: true
   validates :size, presence: true, numericality: { greater_than: 0 }
