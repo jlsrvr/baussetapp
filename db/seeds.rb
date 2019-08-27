@@ -1,10 +1,4 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+require "time"
 
 puts 'creating user 1(admin)..'
 user1 = User.new
@@ -45,12 +39,20 @@ puts 'user 4 created !!'
 
 
 puts 'creating Rue Bausset..'
-bausset = Location.new
-bausset.name = 'La Rue Bausset'
-bausset.address = '17 Rue Bausset, 75015, Paris'
-bausset.user = User.find(1)
-bausset.save!
-puts 'Rue Bausset created !!'
+location = Location.new
+location.name = 'La Rue Bausset'
+location.address = '17 Rue Bausset, 75015, Paris'
+location.user = User.find(1)
+location.save!
+puts "#{location.name} created !!"
+
+puts 'creating Urrugne..'
+location = Location.new
+location.name = 'Urrugne'
+location.address = "422 Chemin d'Oxabiakoborda, 64122, Urrugne"
+location.user = User.find(1)
+location.save!
+puts "#{location.name} created !!"
 
 puts 'Making the beds at rue bausset'
 puts 'Bureau1'
@@ -89,6 +91,45 @@ salon.name = 'salon'
 salon.save!
 
 puts 'All 8 beds have been made at Rue Bausset'
+
+puts "Creating two bookings"
+
+booking = Booking.new
+booking.start_date = Date.new(2019, 12, 8)
+booking.end_date = Date.new(2019, 12, 15)
+booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
+booking.user = User.find(2)
+booking.place = 4
+booking.save!
+
+puts "Booking for #{booking.user.first_name} created in the future"
+
+booking = Booking.new
+booking.start_date = Date.new(2019, 8, 8)
+booking.end_date = Date.new(2019, 8, 15)
+booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
+booking.user = User.find(4)
+booking.place = 3
+booking.status = "accepted"
+booking.save!
+
+puts "Booking for #{booking.user.first_name} created in the future"
+
+puts "Creating a bed combinations for #{booking.user.first_name}"
+
+combination = Combination.new
+combination.booking = Booking.find(2)
+combination.bed = Bed.find(2)
+combination.save!
+
+puts "tu dors dans #{combination.bed.name}"
+
+combination = Combination.new
+combination.booking = Booking.find(2)
+combination.bed = Bed.find(3)
+combination.save!
+
+puts "tu dors dans #{combination.bed.name}"
 
 puts 'You\'re ready to play around with your db'
 
