@@ -7,15 +7,13 @@ const initFullCalendar = () => {
 
   $('#calendar').fullCalendar({
     locale: "fr",
-    height: 500,
-    defaultView: 'listMonth',
-    noEventsMessage: "Aucun tournoi à afficher",
+    handleWindowResize: true,
     buttonText: {
       today:    'Aujourd\'hui',
     },
+    fixedWeekCount: false,
     eventSources: [{
       events: events,
-      color: "#0c7489"
     }]
   })};
 };
