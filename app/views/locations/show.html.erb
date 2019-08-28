@@ -1,3 +1,5 @@
 <% @location.bookings.each do |booking| %>
   <p><%= booking.user.first_name %></p>
 <% end %>
+
+<div id="calendar" class="text-center" data-events="<%= @events.to_json %>">
