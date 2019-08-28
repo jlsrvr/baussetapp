@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
+  include ActiveModel::Validations
+  validates_with MyValidator
   belongs_to :user
   belongs_to :location
   has_many :combinations
