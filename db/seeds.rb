@@ -99,21 +99,23 @@ booking.start_date = Date.new(2019, 12, 8)
 booking.end_date = Date.new(2019, 12, 15)
 booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
 booking.user = User.find(2)
+booking.location = Location.first
 booking.place = 4
 booking.save!
 
-puts "Booking for #{booking.user.first_name} created in the future"
+puts "Booking for #{booking.user.first_name} created in the future(#{booking.start_date})"
 
 booking = Booking.new
 booking.start_date = Date.new(2019, 8, 8)
 booking.end_date = Date.new(2019, 8, 15)
 booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
 booking.user = User.find(4)
+booking.location = Location.first
 booking.place = 3
 booking.status = "accepted"
 booking.save!
 
-puts "Booking for #{booking.user.first_name} created in the future"
+puts "Booking for #{booking.user.first_name} created in the future(#{booking.start_date})"
 
 puts "Creating a bed combinations for #{booking.user.first_name}"
 
