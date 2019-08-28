@@ -1,0 +1,14 @@
+.home-btn {
+  background-color: #F7E6C7;
+  border: 3px solid #256791;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+a.btn.home-btn {
+  font-size: 25px;
+  color: #256791;
+  font-weight: bold;
+}

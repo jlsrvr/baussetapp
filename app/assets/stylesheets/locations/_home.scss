@@ -1,0 +1,26 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), image-url("home-background.jpeg");
+  background-size: cover;
+  h1 {
+    color: #F7E6C7;
+  }
+  h3 {
+    color: #F7E6C7;
+    font-weight: lighter;
+  }
+}
+
+.home-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  .home-btn {
+    margin: 20px;
+  }
+}

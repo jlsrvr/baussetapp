@@ -40,7 +40,7 @@ puts 'user 4 created !!'
 
 puts 'creating Rue Bausset..'
 location = Location.new
-location.name = 'La Rue Bausset'
+location.name = 'Le Palace Parisien'
 location.address = '17 Rue Bausset, 75015, Paris'
 location.user = User.find(1)
 location.save!
@@ -48,7 +48,7 @@ puts "#{location.name} created !!"
 
 puts 'creating Urrugne..'
 location = Location.new
-location.name = 'Urrugne'
+location.name = 'Les Colines Basques'
 location.address = "422 Chemin d'Oxabiakoborda, 64122, Urrugne"
 location.user = User.find(1)
 location.save!
