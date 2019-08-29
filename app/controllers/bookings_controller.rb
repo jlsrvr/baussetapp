@@ -14,8 +14,7 @@ class BookingsController < ApplicationController
     @location = Location.find(params[:location_id])
     @booking = current_user.bookings.build(booking_params.merge(location: @location))
     authorize @booking
-    @booking.save
-    if @booking.save!
+    if @booking.save
       redirect_to bookings_path
     else
       render :new
