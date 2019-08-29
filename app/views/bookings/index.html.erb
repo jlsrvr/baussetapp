@@ -2,7 +2,7 @@
 <ul>
   <% @bookings.each do |booking| %>
     <li>
-      <p>Une resa le <%= booking.start_date %></p>
+      <p><%= booking.id %>Une resa le <%= booking.start_date %></p>
     </li>
   <% end %>
 </ul>
