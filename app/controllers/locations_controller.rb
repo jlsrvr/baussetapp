@@ -3,7 +3,6 @@ class LocationsController < ApplicationController
 
   def index
     @locations = policy_scope(Location)
-    authorize @locations
   end
 
   def show

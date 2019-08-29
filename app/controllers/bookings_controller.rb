@@ -4,17 +4,19 @@ class BookingsController < ApplicationController
   end
 
   def new
-    # @beds = Bed.all
+    @location = Location.find(params[:location_id])
+    @places = @location.no_of_places
     @booking = Booking.new
     authorize @booking
   end
 
   def create
-    @booking = current_user.bookings.build(booking_params)
+    @location = Location.find(params[:location_id])
+    @booking = current_user.bookings.build(booking_params.merge(location: @location))
     authorize @booking
     @booking.save
-    if @booking.save
-      redirect_to booking_path(@booking)
+    if @booking.save!
+      redirect_to bookings_path
     else
       render :new
     end
@@ -28,6 +30,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :bed_id)
+    params.require(:booking).permit(:start_date, :end_date, :place)
   end
 end
