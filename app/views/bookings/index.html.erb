@@ -1,6 +1,8 @@
-<h1>these are all the reseravtions</h1>
+<h1>Toutes tes resas</h1>
 <ul>
   <% @bookings.each do |booking| %>
-    <li><%= "Bravo #{booking.user.first_name} tu dors sur le lit #{booking.bed.name}" %></li>
+    <li>
+      <p><%= booking.id %>Une resa le <%= booking.start_date %></p>
+    </li>
   <% end %>
 </ul>

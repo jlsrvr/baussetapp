@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 gem "nokogiri", ">= 1.10.4"
 
+gem 'momentjs-rails'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

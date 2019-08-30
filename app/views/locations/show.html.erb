@@ -1,3 +1,9 @@
-<% @location.bookings.each do |booking| %>
-  <p><%= booking.user.first_name %></p>
-<% end %>
+<div id="calendar" class="text-center" data-events="<%= @events.to_json %>"></div>
+<div class="under-calendar text-center">
+  <h3>Insert date of day selected</h3>
+  <% @location.bookings.each do |booking| %>
+    <p><%= booking.user.first_name %> sera la pendant <%= pluralize((booking.end_date.to_time.to_i - booking.start_date.to_time.to_i)/86400, 'jour') %>
+    </p>
+  <% end %>
+  <%= link_to "demander une place", new_location_booking_path(@location)  %>
+</div>
