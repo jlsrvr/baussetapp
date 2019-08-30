@@ -6,9 +6,13 @@ class Booking < ApplicationRecord
   has_many :beds, through: :combinations
 
   validates_with MyValidator
-  validates :place, presence: true, numericality: { greater_then: 0 }
+  validates :place, presence: true, numericality: { greater_than: 0 }
   validates :status, inclusion: { in: %w[pending accepted declined] }
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :location, presence: true
+
+  def mark_as_accepted
+    self.status = "accepted"
+  end
 end

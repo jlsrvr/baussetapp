@@ -4,15 +4,19 @@
     <% if booking.user == current_user %>
       <li>
         <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
-        <%= link_to edit_booking_path(booking) do %>
-          <i class="far fa-edit"></i>
+        <% if policy(booking).update? %>
+          <%= link_to edit_booking_path(booking) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
         <% end %>
       </li>
     <% else %>
       <li>
         <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
-        <%= link_to edit_booking_path(booking) do %>
-          <i class="far fa-edit"></i>
+        <% if policy(booking).update? %>
+          <%= link_to edit_booking_path(booking) do %>
+            <i class="far fa-edit"></i>
+          <% end %>
         <% end %>
       </li>
     <% end %>
