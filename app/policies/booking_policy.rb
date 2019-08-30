@@ -13,6 +13,10 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner_or_admin
   end
 
+  def change_status?
+    user.admin
+  end
+
   private
 
   def user_is_owner_or_admin

@@ -1,24 +1,23 @@
 <h1>Toutes tes resas</h1>
 <ul>
   <% @bookings.each do |booking| %>
-    <% if booking.user == current_user %>
-      <li>
+    <li>
+      <% if booking.user == current_user %>
         <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
-        <% if policy(booking).update? %>
-          <%= link_to edit_booking_path(booking) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
-        <% end %>
-      </li>
-    <% else %>
-      <li>
+      <% else %>
         <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
-        <% if policy(booking).update? %>
-          <%= link_to edit_booking_path(booking) do %>
-            <i class="far fa-edit"></i>
-          <% end %>
+      <% end %>
+      <% if policy(booking).update? %>
+        <%= link_to edit_booking_path(booking) do %>
+          <i class="far fa-edit"></i>
         <% end %>
-      </li>
-    <% end %>
+      <% end %>
+      <% if policy(booking).change_status? %>
+        <%= link_to "Accepter", '#' %>
+      <% end %>
+      <% if policy(booking).change_status? %>
+        <%= link_to "Refuser", '#' %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
