@@ -2,6 +2,7 @@
   <% if user_signed_in? %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
+        <%= link_to "Mes Demandes", bookings_path, class: "dropdown-item" %>
         <%= link_to "Le Palace Parisien", location_path(1), class: "dropdown-item" %>
         <%= link_to "Les Colines Basques", location_path(2), class: "dropdown-item" %>
         <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
