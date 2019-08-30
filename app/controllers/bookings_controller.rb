@@ -21,9 +21,10 @@ class BookingsController < ApplicationController
     end
   end
 
-  def show
+  def edit
     @booking = Booking.find(params[:id])
     authorize @booking
+    @location = @booking.location
   end
 
   private
