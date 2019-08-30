@@ -6,8 +6,5 @@ class MyValidator < ActiveModel::Validator
     unless record.place <= record.location.no_of_places
       record.errors[:place] << "Il n'y a pas autant de place ici"
     end
-    unless record.place >= 1
-      record.errors[:place] << "doit être superieur à 1"
-    end
   end
 end
