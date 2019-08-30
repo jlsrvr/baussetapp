@@ -1,9 +1,12 @@
-<%= simple_form_for [@location, @booking] do |f| %>
+<%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
   <%= f.input :start_date %> <!-- use datepicker on here -->
   <%= f.input :end_date %>
-  <%= f.input :place %> <!-- make this a slider -->
+  <%= f.input :place, class: "" %> <!-- make this a slider -->
   <%= f.input :message %>
   <%= f.submit "Make Booking", class: "btn btn-primary" %>
 <% end %>
-
-<%= link_to "Annuler", location_path(@location) %>
+<% if setters[:location] %>
+  <%= link_to "Annuler", location_path(setters[:location]) %>
+<% else %>
+  <%= link_to "Annuler", bookings_path %>
+<% end %>

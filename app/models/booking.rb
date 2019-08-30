@@ -12,7 +12,9 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
   validates :location, presence: true
 
-  def mark_as_accepted
-    self.status = "accepted"
+  def mark_as(state)
+    if %w[accepted declined].include?(state)
+      self.status = state
+    end
   end
 end

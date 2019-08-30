@@ -1,9 +1,2 @@
-<%= simple_form_for [@booking] do |f| %>
-  <%= f.input :start_date %> <!-- use datepicker on here -->
-  <%= f.input :end_date %>
-  <%= f.input :place %> <!-- make this a slider -->
-  <%= f.input :message %>
-  <%= f.submit "modifier", class: "btn btn-primary" %>
-<% end %>
+<%= render "form", setters: {booking: @booking} %>
 
-<%= link_to "Annuler", bookings_path %>
