@@ -1,7 +1,7 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.where(user: user)
+      user.admin ? scope.all : scope.where(user: user)
     end
   end
 
@@ -14,5 +14,11 @@ class BookingPolicy < ApplicationPolicy
     # scope.where(id: record.id).exists?
     # scope sert dans le application policy pour designer le model dans le quel on est
     # record
+  end
+
+  private
+
+  def user_is_owner_or_admin
+    user.admin || record.user == user
   end
 end
