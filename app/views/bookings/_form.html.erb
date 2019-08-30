@@ -1,7 +1,7 @@
 <%= simple_form_for [@location, @booking] do |f| %>
-  <%= f.input :start_date %>
+  <%= f.input :start_date %> <!-- use datepicker on here -->
   <%= f.input :end_date %>
-  <%= f.input :place %>
+  <%= f.input :place %> <!-- make this a slider -->
   <%= f.input :message %>
   <%= f.submit "Make Booking", class: "btn btn-primary" %>
 <% end %>
