@@ -18,7 +18,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def add_beds?
-    user.admin
+    user.admin && record.status != "accepted"
   end
 
   def choose_beds?

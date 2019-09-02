@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = current_user.bookings.build(booking_params.merge(location: @location))
+    raise
     authorize @booking
     if @booking.save
       redirect_to bookings_path
@@ -36,14 +37,28 @@ class BookingsController < ApplicationController
   end
 
   def add_beds
-    raise
+    # pourquoi est ce que d'habitude je dois passer par une methode privé alors que la ca marche seul, ou comment faire pour passer par une méthode privée?
     # Get the bed instances from the ids in the params
-    # For each bed create a combination with the booking
+    beds = params[:booking][:bed_ids][:ids]
+    beds.each do |id|
+      # For each bed create a combination with the booking
+      Combination.create!(
+        bed: Bed.find(id),
+        booking: @booking
+      )
+    end
     # if all combinations have been saved accept status of booking
-    # redirect_to bookings_path
+    @booking.mark_as("accepted")
+    if @booking.save
+      # mettre un pop-up pour dire que ca a été successfull
+      redirect_to bookings_path
+    else
+      raise
+    end
   end
 
   def choose_beds
+    # faire de ca une modal
   end
 
   private
