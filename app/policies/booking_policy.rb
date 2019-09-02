@@ -17,6 +17,14 @@ class BookingPolicy < ApplicationPolicy
     user.admin
   end
 
+  def add_beds?
+    user.admin
+  end
+
+  def choose_beds?
+    add_beds?
+  end
+
   private
 
   def user_is_owner_or_admin
