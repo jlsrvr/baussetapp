@@ -3,7 +3,7 @@
   <%= f.input :end_date %>
   <%= f.input :place, class: "" %> <!-- make this a slider -->
   <%= f.input :message %>
-  <%= f.submit "Make Booking", class: "btn btn-primary" %>
+  <%= f.submit setters[:prompt], class: "btn btn-primary" %>
 <% end %>
 <% if setters[:location] %>
   <%= link_to "Annuler", location_path(setters[:location]) %>
