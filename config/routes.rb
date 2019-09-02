@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index, :edit, :update]
+  resources :bookings, only: [:index, :edit, :update] do
+    resources :combinations, only: [:new, :create]
+  end
 
 end
