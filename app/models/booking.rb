@@ -2,7 +2,7 @@ class Booking < ApplicationRecord
   include ActiveModel::Validations
   belongs_to :user
   belongs_to :location
-  has_many :combinations
+  has_many :combinations, dependent: :delete_all
   has_many :beds, through: :combinations
 
   validates_with MyValidator

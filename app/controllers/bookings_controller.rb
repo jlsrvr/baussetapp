@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_location, only: %i[new create]
-  before_action :set_booking, only: %i[edit update choose_beds add_beds]
+  before_action :set_booking, only: %i[edit update choose_beds add_beds destroy]
 
   def index
     @bookings = policy_scope(Booking)
@@ -61,6 +61,11 @@ class BookingsController < ApplicationController
 
   def choose_beds
     # faire de ca une modal
+  end
+
+  def destroy
+    @booking.destroy
+    redirect_to bookings_path
   end
 
   private
