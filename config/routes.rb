@@ -7,6 +7,11 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create]
   end
 
-  resources :bookings, only: [:index]
+  resources :bookings, only: [:index, :edit, :update, :destroy] #do
+  #   resources :combinations, only: [:new, :create]
+  # end
+  get '/bookings/:id/choose_beds', to: 'bookings#choose_beds', as: 'choose_beds'
+  patch '/bookings/:id/add_beds', to: 'bookings#add_beds', as: 'add_beds'
+  patch '/bookings/:id/decline', to: 'bookings#decline', as: 'decline'
 
 end

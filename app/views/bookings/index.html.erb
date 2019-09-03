@@ -2,7 +2,22 @@
 <ul>
   <% @bookings.each do |booking| %>
     <li>
-      <p><%= booking.id %>Une resa le <%= booking.start_date %></p>
+      <% if booking.user == current_user %>
+        <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
+      <% else %>
+        <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
+      <% end %>
+      <% if policy(booking).update? %>
+        <%= link_to edit_booking_path(booking) do %>
+          <i class="far fa-edit"></i>
+        <% end %>
+      <% end %>
+      <% if policy(booking).choose_beds? %>
+        <%= link_to "Accepter", choose_beds_path(booking) %>
+      <% end %>
+      <% if policy(booking).decline? %>
+        <%= link_to "Refuser", decline_path(booking), method: :patch %>
+      <% end %>
     </li>
   <% end %>
 </ul>

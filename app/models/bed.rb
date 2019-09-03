@@ -1,6 +1,6 @@
 class Bed < ApplicationRecord
   belongs_to :location
-  has_many :combinations
+  has_many :combinations, dependent: :delete_all
   has_many :bookings, through: :combinations
 
   validates :location, presence: true

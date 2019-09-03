@@ -83,7 +83,7 @@ chambre.location = Location.find(1)
 chambre.name = 'Chambre'
 chambre.save!
 
-puts 'salon'
+puts 'Salon'
 salon = Bed.new
 salon.size = 2
 salon.location = Location.find(1)
