@@ -1,10 +1,8 @@
-<div class="booking-accepted">
+
+<div class="booking-pending">
   <div class="admin-card">
-    <div class="picture-area">
-      <%= image_tag("gabin.jpeg") %>
-      <div class="name">
-        <p>GABIN</p>
-      </div>
+    <div class="picture-area" style="background-image: linear-gradient(180.34deg, rgba(255, 255, 255, 0) 0.29%, rgba(57, 112, 147, 0.57) 41.71%), url( <%= image_url('gabin.jpeg') %>); background-size: cover">
+      <p class="name">GABIN</p>
     </div>
     <div class="admin-card-content">
       <div class="admin-card-lit">
@@ -12,10 +10,12 @@
       </div>
       <div class="dates">
         <div class="date">
-          <p>Du Mercredi 28 Decembre</p>
+          <p>Du:</p>
+          <p>Mercredi 28 Décembre</p>
         </div>
         <div class="date">
-          <p>Au Mercredi 28 Décembre</p>
+          <p>Au:</p>
+          <p>Mercredi 28 Décembre</p>
         </div>
       </div>
     </div>
@@ -33,28 +33,46 @@
   </div>
 </div>
 
+<h1>Toutes tes resas</h1>
+
 <div class="booking-pending">
   <div class="admin-card">
-
+    <div class="picture-area" style="background-image: linear-gradient(180.34deg, rgba(255, 255, 255, 0) 0.29%, rgba(57, 112, 147, 0.57) 41.71%), url( <%= image_url('gabin.jpeg') %>); background-size: cover">
+      <div class="pic-text">
+        <p class="name">EMMANUELLE</p>
+        <p class="lits">Pour 5</p>
+      </div>
+    </div>
+    <div class="card-text">
+      <div class="admin-card-content">
+        <div class="dates">
+          <div class="date">
+            <p>Du:</p>
+            <p>Mercredi 28 Décembre</p>
+          </div>
+          <div class="date">
+            <p>Au:</p>
+            <p>Dimanche 28 Décembre</p>
+          </div>
+        </div>
+      </div>
+      <div class="btns-admin-card">
+        <div class="btn-admin-card btn-accept">
+          <%= link_to "Accepter", '#' %>
+        </div>
+        <div class="btn-admin-card btn-decline">
+          <%= link_to "Refuser", '#' %>
+        </div>
+      </div>
+      <div class="message-admin-card">
+        <p>You should always have something here</p>
+      </div>
+    </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
-
-<h1>Toutes tes resas</h1>
 <% @bookings.each do |booking| %>
-    <% if booking.user == current_user %>
-      <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
-    <% else %>
-      <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
-    <% end %>
-    <% if policy(booking).update? %>
+  <% if policy(booking).update? %>
       <%= link_to edit_booking_path(booking) do %>
         <i class="far fa-edit"></i>
       <% end %>
@@ -66,3 +84,27 @@
       <%= link_to "Refuser", decline_path(booking), method: :patch %>
     <% end %>
 <% end %>
+
+
+
+
+
+
+<!-- <%# @bookings.each do |booking| %>
+     <%# if booking.user == current_user %>
+       <p><%#= booking.id %> Une resa le <%= booking.start_date %></p>
+     <%# else %>
+       <p><%#= booking.id %><%#= booking.user.first_name %> a une resa le <%#= booking.start_date %></p>
+     <%# end %>
+     <%# if policy(booking).update? %>
+       <%#= link_to edit_booking_path(booking) do %>
+         <i class="far fa-edit"></i>
+       <%# end %>
+     <%# end %>
+     <%# if policy(booking).choose_beds? %>
+       <%#= link_to "Accepter", choose_beds_path(booking) %>
+     <%# end %>
+     <%# if policy(booking).decline? %>
+       <%#= link_to "Refuser", decline_path(booking), method: :patch %>
+     <%# end %>
+ <%# end %> -->

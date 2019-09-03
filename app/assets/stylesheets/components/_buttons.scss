@@ -1,6 +1,6 @@
 .home-btn {
-  background-color: #F7E6C7;
-  border: 3px solid #256791;
+  background-color: rgb(247,230,199);
+  border: 3px solid rgb(37,103,145);
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -9,6 +9,38 @@
 
 a.btn.home-btn {
   font-size: 25px;
-  color: #256791;
+  color: rgb(37,103,145);
   font-weight: bold;
+}
+
+.btn-admin-card {
+  display: flex;
+  justify-content: space-around;
+  border-radius: 5px;
+  padding: 2px 5px;
+  margin: 5px 2px 5px 0;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+  &.btn-accept {
+    border: 1px solid green;
+    &:hover {
+      background-color: green;
+      border: none;
+    }
+  }
+  &.btn-decline {
+    border: 1px solid red;
+    &:hover {
+      background-color: red;
+      border: none;
+    }
+  }
+  a, a:hover, a:visited {
+    text-decoration: none;
+    color: #505761;
+  }
+  a:hover{
+    color: rgb(247,241,230);
+  }
 }
