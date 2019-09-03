@@ -12,8 +12,8 @@
           <i class="far fa-edit"></i>
         <% end %>
       <% end %>
-      <% if policy(booking).change_status? %>
-        <%= link_to "Accepter", '#' %>
+      <% if policy(booking).choose_beds? %>
+        <%= link_to "Accepter", choose_beds_path(booking) %>
       <% end %>
       <% if policy(booking).change_status? %>
         <%= link_to "Refuser", '#' %>
