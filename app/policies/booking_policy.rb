@@ -13,10 +13,6 @@ class BookingPolicy < ApplicationPolicy
     user_is_owner_or_admin
   end
 
-  def change_status?
-    user.admin
-  end
-
   def add_beds?
     user.admin && record.status != "accepted"
   end
@@ -27,6 +23,10 @@ class BookingPolicy < ApplicationPolicy
 
   def destroy?
     user_is_owner_or_admin
+  end
+
+  def decline?
+    user.admin && record.status != "declined"
   end
 
   private

@@ -15,8 +15,8 @@
       <% if policy(booking).choose_beds? %>
         <%= link_to "Accepter", choose_beds_path(booking) %>
       <% end %>
-      <% if policy(booking).change_status? %>
-        <%= link_to "Refuser", '#' %>
+      <% if policy(booking).decline? %>
+        <%= link_to "Refuser", decline_path(booking) %>
       <% end %>
     </li>
   <% end %>

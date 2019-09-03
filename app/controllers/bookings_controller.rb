@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_location, only: %i[new create]
-  before_action :set_booking, only: %i[edit update choose_beds add_beds destroy]
-
+  before_action :set_booking, except: %i[index new create]
+    # only: %i[edit update choose_beds add_beds destroy deny]
   def index
     @bookings = policy_scope(Booking)
   end
@@ -38,6 +38,10 @@ class BookingsController < ApplicationController
     end
   end
 
+  def choose_beds
+    # faire de ca une modal
+  end
+
   def add_beds
     # pourquoi est ce que d'habitude je dois passer par une methode privé alors que la ca marche seul, ou comment faire pour passer par une méthode privée?
     # Get the bed instances from the ids in the params
@@ -59,13 +63,16 @@ class BookingsController < ApplicationController
     end
   end
 
-  def choose_beds
-    # faire de ca une modal
-  end
-
   def destroy
     @booking.destroy
     redirect_to bookings_path
+  end
+
+  def decline
+    @booking.mark_as("declined")
+    if @booking.save
+      render :edit
+    end
   end
 
   private
