@@ -23,12 +23,13 @@ class BookingsController < ApplicationController
   end
 
   def edit
-    authorize @booking
     @location = @booking.location
   end
 
   def update
     if @booking.update(booking_params)
+      @booking.mark_as("pending")
+      @booking.save!
       redirect_to bookings_path
     else
       render :edit
