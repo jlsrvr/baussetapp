@@ -1,23 +1,68 @@
+<div class="booking-accepted">
+  <div class="admin-card">
+    <div class="picture-area">
+      <%= image_tag("gabin.jpeg") %>
+      <div class="name">
+        <p>GABIN</p>
+      </div>
+    </div>
+    <div class="admin-card-content">
+      <div class="admin-card-lit">
+        <p>Pour 5 places</p>
+      </div>
+      <div class="dates">
+        <div class="date">
+          <p>Du Mercredi 28 Decembre</p>
+        </div>
+        <div class="date">
+          <p>Au Mercredi 28 Décembre</p>
+        </div>
+      </div>
+    </div>
+    <div class="btns-admin-card">
+      <div class="btn-admin-card btn-accept">
+        <%= link_to "Accepter", '#' %>
+      </div>
+      <div class="btn-admin-card btn-decline">
+        <%= link_to "Refuser", '#' %>
+      </div>
+    </div>
+    <div class="message-admin-card">
+      <p>You should always have something here</p>
+    </div>
+  </div>
+</div>
+
+<div class="booking-pending">
+  <div class="admin-card">
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
 <h1>Toutes tes resas</h1>
-<ul>
-  <% @bookings.each do |booking| %>
-    <li>
-      <% if booking.user == current_user %>
-        <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
-      <% else %>
-        <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
+<% @bookings.each do |booking| %>
+    <% if booking.user == current_user %>
+      <p><%= booking.id %> Une resa le <%= booking.start_date %></p>
+    <% else %>
+      <p><%= booking.id %><%= booking.user.first_name %> a une resa le <%= booking.start_date %></p>
+    <% end %>
+    <% if policy(booking).update? %>
+      <%= link_to edit_booking_path(booking) do %>
+        <i class="far fa-edit"></i>
       <% end %>
-      <% if policy(booking).update? %>
-        <%= link_to edit_booking_path(booking) do %>
-          <i class="far fa-edit"></i>
-        <% end %>
-      <% end %>
-      <% if policy(booking).choose_beds? %>
-        <%= link_to "Accepter", choose_beds_path(booking) %>
-      <% end %>
-      <% if policy(booking).decline? %>
-        <%= link_to "Refuser", decline_path(booking), method: :patch %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+    <% end %>
+    <% if policy(booking).choose_beds? %>
+      <%= link_to "Accepter", choose_beds_path(booking) %>
+    <% end %>
+    <% if policy(booking).decline? %>
+      <%= link_to "Refuser", decline_path(booking), method: :patch %>
+    <% end %>
+<% end %>
