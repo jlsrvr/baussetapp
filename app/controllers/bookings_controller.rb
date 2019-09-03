@@ -71,6 +71,7 @@ class BookingsController < ApplicationController
   def decline
     @booking.mark_as("declined")
     if @booking.save
+      @booking.combinations.destroy_all
       render :edit
     end
   end

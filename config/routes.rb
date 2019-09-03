@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   # end
   get '/bookings/:id/choose_beds', to: 'bookings#choose_beds', as: 'choose_beds'
   patch '/bookings/:id/add_beds', to: 'bookings#add_beds', as: 'add_beds'
-  patch '/bookings/:id/decline', to: 'bookings#decline', as: 'declined'
+  patch '/bookings/:id/decline', to: 'bookings#decline', as: 'decline'
 
 end

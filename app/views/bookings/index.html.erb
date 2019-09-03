@@ -16,7 +16,7 @@
         <%= link_to "Accepter", choose_beds_path(booking) %>
       <% end %>
       <% if policy(booking).decline? %>
-        <%= link_to "Refuser", decline_path(booking) %>
+        <%= link_to "Refuser", decline_path(booking), method: :patch %>
       <% end %>
     </li>
   <% end %>
