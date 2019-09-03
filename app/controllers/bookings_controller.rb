@@ -28,8 +28,10 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      @booking.mark_as("pending")
-      @booking.save!
+      if !current_user.admin
+        @booking.mark_as("pending")
+        @booking.save!
+      end
       redirect_to bookings_path
     else
       render :edit
