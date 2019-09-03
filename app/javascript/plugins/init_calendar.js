@@ -7,6 +7,7 @@ const initFullCalendar = () => {
 
   $('#calendar').fullCalendar({
     locale: "fr",
+    height: "parent",
     handleWindowResize: true,
     buttonText: {
       today:    'Aujourd\'hui',
