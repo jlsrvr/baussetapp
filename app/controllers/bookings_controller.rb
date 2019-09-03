@@ -14,7 +14,6 @@ class BookingsController < ApplicationController
 
   def create
     @booking = current_user.bookings.build(booking_params.merge(location: @location))
-    raise
     authorize @booking
     if @booking.save
       redirect_to bookings_path
