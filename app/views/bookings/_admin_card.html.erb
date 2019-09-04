@@ -2,38 +2,46 @@
   <div class="picture-area" style="background-image: linear-gradient(180.34deg, rgba(255, 255, 255, 0) 0.29%, rgba(57, 112, 147, 0.57) 41.71%), url( <%= image_url('gabin.jpeg') %>); background-size: cover">
     <div class="pic-text">
       <% if booking.user == current_user && current_user.admin %>
-        <p class="name"><%= MOI %></p>
+        <p class="name">MOI</p>
+      <% else %>
+        <p class="name"><%= booking.user.first_name.upcase %></p>
       <% end %>
-      <p class="name"><%= booking.user.first_name.upcase %></p>
-      <p class="lits"><%= booking.place %></p>
+      <p class="lits">Pour <%= booking.place %></p>
     </div>
   </div>
   <div class="card-text">
     <div class="admin-card-content">
       <div class="dates">
         <div class="date">
-          <p>Du:</p>
-          <p>booking.start_date</p>
+          <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
         </div>
         <div class="date">
-          <p>Au:</p>
-          <p>booking.end_date</p>
+          <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
         </div>
       </div>
     </div>
     <div class="btns-admin-card">
-      <div class="btn-admin-card btn-accept">
-        <% if policy(booking).choose_beds? %>
+      <% if policy(booking).choose_beds? %>
+        <div class="btn-admin-card btn-accept">
           <%= link_to "Accepter", choose_beds_path(booking) %>
-        <% end %>
-      </div>
-      <div class="btn-admin-card btn-decline">
-        <% if policy(booking).decline? %>
+        </div>
+      <% end %>
+      <% if policy(booking).decline? %>
+        <div class="btn-admin-card btn-decline">
           <%= link_to "Refuser", decline_path(booking), method: :patch %>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
     <div class="message-admin-card">
+      <% if booking.status == "accepted" %>
+        <div class="lits">
+          <% booking.beds.each do |bed| %>
+            <div class="lit">
+              <%= bed.name %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
       <% if booking.message == ""%>
         <p>You should always have something here</p>
       <% else %>
