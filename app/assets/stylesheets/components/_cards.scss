@@ -1,0 +1,48 @@
+.admin-card {
+  position: relative;
+  display: flex;
+  margin: 15px 10px 15px 35px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  border-radius: 15px;
+  height: 105px;
+  background: rgb(247,241,230);
+  .picture-area {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    left: -25px;
+    top: initial;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    .pic-text {
+      display: flex;
+      font-weight: bold;
+      color: rgb(247,241,230);
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  p {
+    margin: 0;
+  }
+  .message-admin-card {
+    display: none;
+  }
+  .card-text {
+    display: flex;
+    justify-content: space-around;
+    flex-basis: 81%;
+  }
+  .btns-admin-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    justify-content: center;
+  }
+}
