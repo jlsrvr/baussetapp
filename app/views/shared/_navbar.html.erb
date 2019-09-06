@@ -1,10 +1,15 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon <%= yield(:navbar_class) %>">
+<div class="my-navbar navbar navbar-expand-sm <%= yield(:navbar_class) %>">
   <% if user_signed_in? %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-        <%= link_to "Mes Demandes", bookings_path, class: "dropdown-item" %>
-        <%= link_to "Le Palace Parisien", location_path(1), class: "dropdown-item" %>
-        <%= link_to "Les Colines Basques", location_path(2), class: "dropdown-item" %>
+      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "menu-burger dropdown-toggle", id: "navMenu", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="my-dropdown dropdown-menu" aria-labelledby="navMenu">
+        <div class="nav-demandes">
+          <%= link_to "Mes Demandes", bookings_path, class: "dropdown-item" %>
+          <% if current_user.admin %>
+            <span class="badge badge-primary badge-pill"><%= current_user.bookings_as_host.where(status:"pending").count %></span>
+          <% end %>
+        </div>
+        <%= link_to "#{Location.find(1).name}", location_path(1), class: "dropdown-item" %>
+        <%= link_to "#{Location.find(1).name}", location_path(2), class: "dropdown-item" %>
         <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div>
   <% else %>
@@ -14,3 +19,5 @@
      <p class="nav-location-name"><%= @location.name %></p>
   <% end %>
 </div>
+
+
