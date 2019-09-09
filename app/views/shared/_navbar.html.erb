@@ -17,7 +17,7 @@
           <% end %>
         </div>
         <%= link_to "#{Location.find(1).name}", location_path(1), class: "dropdown-item" %>
-        <%= link_to "#{Location.find(1).name}", location_path(2), class: "dropdown-item" %>
+        <%= link_to "#{Location.find(2).name}", location_path(2), class: "dropdown-item" %>
         <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
       </div> <!-- end of everything that goes into the dropdown -->
   <% else %>
