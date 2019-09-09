@@ -1,3 +1,22 @@
+.body {
+  background-color : red !important;
+}
+
+.my-dropdown {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 50%;
+  font-size: 1rem;
+  color: $bleu;
+  background-color: $red;
+  border-radius: 0 30px 30px 0;
+}
+
 // .my-navbar {
 //   width: 100%;
 //   background: bleu;
@@ -20,21 +39,3 @@
 
 // certified css
 
-.body {
-  background-color : red;
-}
-
-.my-dropdown {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 1000;
-  display: none;
-  float: left;
-  min-width: 50%;
-  font-size: 1rem;
-  color: $bleu;
-  background-color: $grey;
-  border-radius: 0 30px 30px 0;
-}
