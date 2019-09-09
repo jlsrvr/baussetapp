@@ -34,9 +34,20 @@
   }
 }
 
+.dropdown-item {
+  color: $blue;
+  font-weight: bolder;
+  padding: 0.50rem 1.5rem;
+}
+
 .menu-burger {
   height: 25px;
   margin-left: 14px;
+  z-index: 1001;
+}
+
+.show > .menu-burger {
+  transform: scaleX(-1);
 }
 
 p.nav-location-name {
@@ -49,3 +60,24 @@ p.nav-location-name {
   color: #FFFFFF;
 }
 
+.nav-profile-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nav-profile-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 0 30px;
+  p {
+    margin: 5;
+  }
+}
+
+.disconnect {
+  position: absolute;
+  bottom: 15px;
+}
