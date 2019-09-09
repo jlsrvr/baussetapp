@@ -1,7 +1,15 @@
 <div class="my-navbar navbar navbar-expand-sm <%= yield(:navbar_class) %>">
   <% if user_signed_in? %>
-      <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "menu-burger dropdown-toggle", id: "navMenu", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-      <div class="my-dropdown dropdown-menu" aria-labelledby="navMenu">
+      <%= image_tag "menu_burger_perso.svg", class: "menu-burger dropdown-toggle", id: "navMenu", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+      <div class="my-dropdown dropdown-menu" aria-labelledby="navMenu"> <!-- start of everything that goes into the dropdown -->
+        <div class="nav-profile-info">
+          <%= image_tag "gab.jpg", class: "avatar" %>
+          <div class="nav-profile-content">
+            <p><%= current_user.first_name %></p>
+            <p><%= current_user.email %></p>
+          </div>
+        </div>
+
         <div class="nav-demandes">
           <%= link_to "Mes Demandes", bookings_path, class: "dropdown-item" %>
           <% if current_user.admin %>
@@ -11,7 +19,7 @@
         <%= link_to "#{Location.find(1).name}", location_path(1), class: "dropdown-item" %>
         <%= link_to "#{Location.find(1).name}", location_path(2), class: "dropdown-item" %>
         <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-      </div>
+      </div> <!-- end of everything that goes into the dropdown -->
   <% else %>
       <%= link_to "Se Connecter", new_user_session_path, class: "nav-link" %>
   <% end %>
