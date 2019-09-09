@@ -3,22 +3,22 @@
       <%= image_tag "menu_burger_perso.svg", class: "menu-burger dropdown-toggle", id: "navMenu", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
       <div class="my-dropdown dropdown-menu" aria-labelledby="navMenu"> <!-- start of everything that goes into the dropdown -->
         <div class="nav-profile-info">
-          <%= image_tag "gab.jpg", class: "avatar" %>
+          <%= image_tag "gab.jpg", class: "avatar nav-avatar" %>
           <div class="nav-profile-content">
-            <p><%= current_user.first_name %></p>
+            <p><strong><%= current_user.first_name.capitalize %></strong></p>
             <p><%= current_user.email %></p>
           </div>
         </div>
 
-        <div class="nav-demandes">
-          <%= link_to "Mes Demandes", bookings_path, class: "dropdown-item" %>
+        <div class="nav-demandes dropdown-item">
+          <%= link_to "Mes Demandes", bookings_path %>
           <% if current_user.admin %>
             <span class="badge badge-primary badge-pill"><%= current_user.bookings_as_host.where(status:"pending").count %></span>
           <% end %>
         </div>
         <%= link_to "#{Location.find(1).name}", location_path(1), class: "dropdown-item" %>
         <%= link_to "#{Location.find(2).name}", location_path(2), class: "dropdown-item" %>
-        <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <%= link_to "Se Déconnecter", destroy_user_session_path, method: :delete, class: "dropdown-item disconnect" %>
       </div> <!-- end of everything that goes into the dropdown -->
   <% else %>
       <%= link_to "Se Connecter", new_user_session_path, class: "nav-link" %>

@@ -34,6 +34,10 @@
   }
 }
 
+.dropdown-item {
+  color: $blue;
+}
+
 .menu-burger {
   height: 25px;
   margin-left: 14px;
@@ -61,3 +65,16 @@ p.nav-location-name {
   align-items: center;
 }
 
+.nav-profile-content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px 0 15px;
+  p {
+    margin: 0;
+  }
+}
+
+.disconnect {
+  align-self: flex-end;
+}
