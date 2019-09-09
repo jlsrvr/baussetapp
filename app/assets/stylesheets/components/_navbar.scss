@@ -23,6 +23,17 @@
   border-radius: 0px 0px 35px 35px;
 }
 
+.navbar-home {
+  position: absolute;
+  width: 100%;
+  background: transparent;
+  box-shadow: none;
+  .nav-link {
+    color: #ffffff;
+    font-weight: lighter;;
+  }
+}
+
 .menu-burger {
   height: 25px;
   margin-left: 14px;
