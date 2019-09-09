@@ -36,6 +36,8 @@
 
 .dropdown-item {
   color: $blue;
+  font-weight: bolder;
+  padding: 0.50rem 1.5rem;
 }
 
 .menu-burger {
@@ -69,12 +71,13 @@ p.nav-location-name {
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 10px 0 15px;
+  margin: 10px 0 30px;
   p {
-    margin: 0;
+    margin: 5;
   }
 }
 
 .disconnect {
-  align-self: flex-end;
+  position: absolute;
+  bottom: 15px;
 }
