@@ -36,11 +36,22 @@ a.btn.home-btn {
       border: none;
     }
   }
-  a, a:hover, a:visited {
-    text-decoration: none;
-    color: #505761;
-  }
   a:hover{
     color: rgb(247,241,230);
+    text-decoration: none
   }
+}
+
+// The button to create a reservation
+
+.btn-add {
+  border: 3px solid #256791;
+  border-radius: 50%;
+  padding: 5px;
+  height: 60px;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 3%;
+  right: 5%;
+  z-index: 99;
 }
