@@ -45,5 +45,13 @@ a.btn.home-btn {
 // The button to create a reservation
 
 .btn-add {
-
+  border: 3px solid #256791;
+  border-radius: 50%;
+  padding: 5px;
+  height: 60px;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 3%;
+  right: 5%;
+  z-index: 99;
 }
