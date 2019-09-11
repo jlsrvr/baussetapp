@@ -1,38 +1,5 @@
-
-<h1>Toutes tes resas</h1>
-
-<h3>Pending</h3>
-<% @bookings.each do |booking| %>
-  <% if booking.status == "pending" %>
-    <div class="booking-pending">
-      <% if current_user.admin %>
-        <%= render "admin_card", booking: booking %>
-      <% end %>
-    </div>
-  <% end %>
+<% if current_user.admin? %>
+  <%= render "admin_index" %>
+<% else %>
+  <%= render "user_index" %>
 <% end %>
-<h3>Accepted</h3>
-<% @bookings.each do |booking| %>
-  <% if booking.status == "accepted" %>
-    <div class="booking-accepted">
-      <% if current_user.admin %>
-        <%= render "admin_card", booking: booking %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
-<h3>Declined</h3>
-<% @bookings.each do |booking| %>
-  <% if booking.status == "declined" %>
-    <div class="booking-declined">
-      <% if current_user.admin %>
-        <%= render "admin_card", booking: booking %>
-      <% end %>
-    </div>
-  <% end %>
-<% end %>
-
-      <%#= link_to edit_booking_path(booking) do %>
-        <!-- <i class="far fa-edit"></i> -->
-      <%# end %>
-

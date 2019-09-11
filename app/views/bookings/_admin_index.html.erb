@@ -1,0 +1,31 @@
+<%= content_for(:navbar_title, "Les Demandes") %>
+<% if !@bookings.where(status: "pending").empty? %>
+  <h3>En Attente</h3>
+  <div class="bookings-scroll">
+    <% @bookings.each do |booking| %>
+      <% if booking.status == "pending" %>
+          <%= render "admin_card", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<% if !@bookings.where(status: "accepted").empty? %>
+  <h3>Accepter</h3>
+  <div class="bookings-scroll">
+    <% @bookings.each do |booking| %>
+      <% if booking.status == "accepted" %>
+          <%= render "admin_card", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+<% if !@bookings.where(status: "declined").empty? %>
+  <h3>Refuser</h3>
+  <div class="bookings-scroll">
+    <% @bookings.each do |booking| %>
+      <% if booking.status == "declined" %>
+        <%= render "admin_card", booking: booking %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

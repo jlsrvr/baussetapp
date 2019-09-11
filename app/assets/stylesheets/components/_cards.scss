@@ -1,4 +1,75 @@
-.admin-card {
+// admin card css
+.admin-card{
+  display: inline-block;
+  position: relative;
+  width: 180px;
+  margin: 45px 0 0;
+  p {
+    margin: 0;
+  }
+  .picture-area {
+    position: absolute;
+    left: 47px;
+    top: -43px;
+    width: 86px;
+    height: 86px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    .pic-text {
+      display: flex;
+      font-weight: bold;
+      color: $white;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .card-text {
+    background-color: white;
+    height: 250px;
+    border-radius: 30px;
+    .admin-card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      top: 47px;
+      bottom: 20%;
+    }
+    p {
+      align-self: center;
+    }
+    .btns-admin-card {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 5%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+  }
+  .dates {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-evenly;
+    #jour {
+      align-self: center;
+      font-weight: bolder
+    }
+  }
+}
+.message-admin-card {
+  display: none;
+}
+// user card css
+.user-card {
   position: relative;
   display: flex;
   margin: 15px 10px 15px 35px;
@@ -7,7 +78,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
   border-radius: 15px;
   height: 105px;
-  background: rgb(247,241,230);
+  background: $white;
   .picture-area {
     position: absolute;
     width: 85px;
@@ -23,7 +94,7 @@
     .pic-text {
       display: flex;
       font-weight: bold;
-      color: rgb(247,241,230);
+      color: $white;
       flex-direction: column;
       align-items: center;
     }
@@ -31,15 +102,15 @@
   p {
     margin: 0;
   }
-  .message-admin-card {
+  .lits-user-card {
     display: none;
-  }
   .card-text {
     display: flex;
     justify-content: space-around;
     flex-basis: 81%;
   }
-  .btns-admin-card {
+  }
+  .user-card-btn-position {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
