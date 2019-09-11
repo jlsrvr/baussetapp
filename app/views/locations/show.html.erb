@@ -1,3 +1,4 @@
+<%= content_for(:navbar_title, "#{@location.name}") %>
 <div class="calendar-container">
   <div id="calendar" class="text-center" data-events="<%= @events.to_json %>"></div>
 </div>
