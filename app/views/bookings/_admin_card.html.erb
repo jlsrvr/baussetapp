@@ -1,5 +1,4 @@
 <div class="admin-card">
-
   <div class="picture-area" style="background-image: linear-gradient(180.34deg, rgba(255, 255, 255, 0) 0.29%, rgba(57, 112, 147, 0.57) 41.71%), url(<%= image_url('gab.jpg') %>); background-size: cover">
     <div class="pic-text">
       <% if booking.user == current_user && current_user.admin %>
@@ -15,14 +14,14 @@
       <div class="dates">
         <div class="date">
           <p>Du:</p>
-          <p><%= booking.start_date.strftime('%a %d %b') %></p>
+          <p id="jour"><%= booking.start_date.strftime('%a %d %B') %></p>
         </div>
         <div class="date">
           <p>Au:</p>
-          <p><%= booking.end_date.strftime('%a %d %b') %></p>
+          <p id="jour"><%= booking.end_date.strftime('%a %d %B') %></p>
         </div>
       </div>
-    </div> <!-- end card-text -->
+    </div> <!-- end admin-card-content -->
     <div class="btns-admin-card">
       <% if policy(booking).choose_beds? %>
         <div class="btn-card btn-accept">
@@ -41,15 +40,16 @@
           <% booking.beds.each do |bed| %>
             <div class="lit">
               <%= bed.name %>
-            </div>
+            </div> <!-- end lit -->
           <% end %>
-        </div>
-      <% end %>
-      <% if booking.message == ""%>
-        <p>Il n'y a pas de message</p>
+        </div> <!-- end lits -->
       <% else %>
-        <p><%= booking.message %></p>
+        <% if booking.message == ""%>
+          <p>Il n'y a pas de message</p>
+        <% else %>
+          <p><%= booking.message %></p>
+        <% end %>
       <% end %>
     </div> <!-- end message-admin-card -->
-  </div>
+  </div> <!-- end card-text -->
 </div>
