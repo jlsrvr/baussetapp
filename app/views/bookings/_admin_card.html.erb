@@ -1,4 +1,5 @@
 <div class="admin-card">
+
   <div class="picture-area" style="background-image: linear-gradient(180.34deg, rgba(255, 255, 255, 0) 0.29%, rgba(57, 112, 147, 0.57) 41.71%), url(<%= image_url('gab.jpg') %>); background-size: cover">
     <div class="pic-text">
       <% if booking.user == current_user && current_user.admin %>
@@ -6,32 +7,34 @@
       <% else %>
         <p class="name"><%= booking.user.first_name.upcase %></p>
       <% end %>
-      <p class="lits">Pour <%= booking.place %></p>
     </div>
-  </div>
+  </div> <!-- end picture area -->
   <div class="card-text">
     <div class="admin-card-content">
+      <p><%= pluralize(booking.place, 'lit') %></p>
       <div class="dates">
         <div class="date">
-          <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
+          <p>Du:</p>
+          <p><%= booking.start_date.strftime('%a %d %b') %></p>
         </div>
         <div class="date">
-          <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
+          <p>Au:</p>
+          <p><%= booking.end_date.strftime('%a %d %b') %></p>
         </div>
       </div>
-    </div>
+    </div> <!-- end card-text -->
     <div class="btns-admin-card">
       <% if policy(booking).choose_beds? %>
-        <div class="btn-admin-card btn-accept">
+        <div class="btn-card btn-accept">
           <%= link_to "Accepter", choose_beds_path(booking) %>
         </div>
       <% end %>
       <% if policy(booking).decline? %>
-        <div class="btn-admin-card btn-decline">
+        <div class="btn-card btn-decline">
           <%= link_to "Refuser", decline_path(booking), method: :patch %>
         </div>
       <% end %>
-    </div>
+    </div> <!-- end btns-admin-card -->
     <div class="message-admin-card">
       <% if booking.status == "accepted" %>
         <div class="lits">
@@ -43,10 +46,10 @@
         </div>
       <% end %>
       <% if booking.message == ""%>
-        <p>You should always have something here</p>
+        <p>Il n'y a pas de message</p>
       <% else %>
         <p><%= booking.message %></p>
       <% end %>
-    </div>
+    </div> <!-- end message-admin-card -->
   </div>
 </div>

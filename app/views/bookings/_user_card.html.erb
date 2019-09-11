@@ -24,9 +24,11 @@
       </div>
     </div>
     <div class="user-card-btn-position">
-      <div class="btn-card btn-modify">
-        <%= link_to "Modifier", edit_booking_path(booking) %>
-      </div>
+      <!-- <div class="btn-card btn-modify"> -->
+      <%= link_to edit_booking_path(booking) do %>
+        <i class="far fa-edit"></i> -->
+      <% end %>
+      <!-- </div> -->
     </div>
     <div class="lits-user-card">
       <% if booking.status == "accepted" %>
