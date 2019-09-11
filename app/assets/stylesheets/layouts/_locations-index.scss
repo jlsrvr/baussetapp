@@ -1,30 +1,33 @@
 .banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
   height: 100vh;
   background-image: image-url("home-background.jpg");
   background-size: cover;
-  h1 {
-    color: $white;
+  color: $white;
+  .home-title {
+    position: absolute;
+    top: 7%;
+    display: flex;
+    height: 30vh;
+    flex-direction: column;
+    justify-content: space-around;
   }
   h3 {
-    color: $white;
     font-weight: lighter;
   }
 }
 
 .home-buttons {
+  position: absolute;
+  bottom: 21%;
+  left: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 100%;
+  margin-left: -30%;
   .home-btn {
     margin: 20px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 190px;
   }
-}
-
-.home-title {
-  margin-bottom: 50px;
 }
