@@ -4,6 +4,11 @@
 </div>
 <!-- pour choisir la taille du calendrier : mettre le calendrier dans une div et donner les dimension que je veux a cette div -->
 <div class="under-calendar text-center">
+  <% if current_user.admin %>
+    <p>Prochaines arrivées</p>
+    <%= @location.bookings.where(start_date: Date.current) %>
+    <!-- mettre un truc qui selection la prochaine reservation -->
+  <% end %>
   <h3>Insert date of day selected</h3>
   <% @location.bookings.each do |booking| %>
     <p><%= booking.user.first_name %> sera la pendant <%= pluralize((booking.end_date.to_time.to_i - booking.start_date.to_time.to_i)/86400, 'jour') %> sa resa a été <%= booking.status %>
