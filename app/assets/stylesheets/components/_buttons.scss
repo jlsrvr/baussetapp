@@ -13,7 +13,7 @@ a.btn.home-btn {
   font-weight: bold;
 }
 
-.btn-admin-card {
+.btn-card {
   display: flex;
   justify-content: space-around;
   border-radius: 5px;
@@ -36,8 +36,15 @@ a.btn.home-btn {
       border: none;
     }
   }
+  &.btn-modify {
+    border: 1px solid orange;
+    &:hover {
+      background-color: orange;
+      border: none;
+    }
+  }
   a:hover{
-    color: rgb(247,241,230);
+    color: $white;
     text-decoration: none
   }
 }

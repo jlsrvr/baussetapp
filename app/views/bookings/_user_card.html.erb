@@ -1,0 +1,45 @@
+<div class="user-card">
+  <div class="picture-area" style="background-image: linear-gradient(rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.44)), url(<%= image_url('photo-appart.jpg') %>); background-size: cover">
+    <div class="pic-text">
+      <p>
+        <%if booking.status == "accepted" %>
+          Accepter
+        <% elsif booking.status == "pending" %>
+          En Attente
+        <% else %>
+          Refuser
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="card-text">
+    <div class="user-card-content">
+      <div class="dates">
+        <div class="date">
+          <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
+        </div>
+        <div class="date">
+          <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
+        </div>
+      </div>
+    </div>
+    <div class="user-card-btn-position">
+      <div class="btn-card btn-modify">
+        <%= link_to "Modifier", edit_booking_path(booking) %>
+      </div>
+    </div>
+    <div class="lits-user-card">
+      <% if booking.status == "accepted" %>
+        <div class="lits">
+          <% booking.beds.each do |bed| %>
+            <div class="lit">
+              <%= bed.name %>
+            </div>
+          <% else %>
+          <p class="message-user">Tu n'as pas encore de lit</p>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
