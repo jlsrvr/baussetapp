@@ -48,7 +48,7 @@ puts "#{location.name} created !!"
 
 puts 'creating Urrugne..'
 location = Location.new
-location.name = 'Les Colines Basques'
+location.name = 'Les Collines Basques'
 location.address = "422 Chemin d'Oxabiakoborda, 64122, Urrugne"
 location.user = User.find(1)
 location.save!
