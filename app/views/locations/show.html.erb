@@ -1,15 +1,23 @@
 <%= content_for(:navbar_title, "#{@location.name}") %>
-<div class="calendar-container">
-  <div id="calendar" class="text-center" data-events="<%= @events.to_json %>"></div>
-</div>
-<!-- pour choisir la taille du calendrier : mettre le calendrier dans une div et donner les dimension que je veux a cette div -->
-<div class="under-calendar text-center">
-  <h3>Insert date of day selected</h3>
-  <% @location.bookings.each do |booking| %>
-    <p><%= booking.user.first_name %> sera la pendant <%= pluralize((booking.end_date.to_time.to_i - booking.start_date.to_time.to_i)/86400, 'jour') %> sa resa a été <%= booking.status %>
-    </p>
+<div class="my-container">
+  <div class="calendar-container">
+    <div id="calendar" class="text-center" data-events="<%= @events.to_json %>"></div>
+  </div>
+  <!-- pour choisir la taille du calendrier : mettre le calendrier dans une div et donner les dimension que je veux a cette div -->
+  <div class="under-calendar">
+    <% if current_user.admin %>
+      <p>Prochaines arrivées:<p>
+      <div class="next-guest-display">
+        <% @upcoming_bookings.each do |upcoming| %>
+          <div class="avatar-date">
+            <%= image_tag "gab.jpg", class: "avatar" %>
+            <p><%= upcoming.start_date.strftime("Le %d/%m") %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <%= link_to(new_location_booking_path(@location)) do %>
+  <%= image_tag "add-btn-perso.svg", class: "btn-add" %>
   <% end %>
 </div>
-<%= link_to(new_location_booking_path(@location)) do %>
-<%= image_tag "add-btn-perso.svg", class: "btn-add" %>
-<% end %>

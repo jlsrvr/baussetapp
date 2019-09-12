@@ -1,1 +1,25 @@
+.my-container{
+  margin: 0 5%;
+}
+.under-calendar {
+  background-color: $white;
+  border-radius: 20px;
+  > p {
+    margin: 0 15px;
+  }
+}
+
+.next-guest-display {
+  display: flex;
+}
+
+.avatar-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 0 0 10px;
+  p {
+    margin: 0;
+  }
+}
 

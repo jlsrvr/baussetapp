@@ -10,9 +10,11 @@
           </div>
         </div>
         <div class="nav-demandes dropdown-item">
-          <%= link_to "Mes Demandes", bookings_path %>
           <% if current_user.admin %>
+            <%= link_to "Les Demandes", bookings_path %>
             <span class="badge badge-primary badge-pill"><%= current_user.bookings_as_host.where(status:"pending").count %></span>
+          <% else %>
+            <%= link_to "Mes Demandes", bookings_path %>
           <% end %>
         </div>
         <%= link_to "#{Location.find(1).name}", location_path(1), class: "dropdown-item" %>
