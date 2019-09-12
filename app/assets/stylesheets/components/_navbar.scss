@@ -72,8 +72,8 @@ p.nav-location-name {
   align-items: center;
   flex-direction: column;
   margin: 10px 0 30px;
-  p {
-    margin: 5;
+  & p {
+    margin: 0;
   }
 }
 
