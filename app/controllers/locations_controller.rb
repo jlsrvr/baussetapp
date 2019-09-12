@@ -9,7 +9,7 @@ class LocationsController < ApplicationController
     @location = Location.find(params[:id])
     authorize @location
     events = @location.bookings.where(status: "accepted")
-    @upcoming_bookings = events.where('start_date: >= ?', Date.current).order(start_date: :asc).first(5)
+    @upcoming_bookings = events.where('start_date >= ?', Date.current).order(start_date: :asc).first(5)
     @events = events.map do |booking|
       {
         title: booking.user.first_name,
