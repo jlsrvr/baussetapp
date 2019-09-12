@@ -11,14 +11,13 @@
 
 .next-guest-display {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly
 }
 
 .avatar-date {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0 0 0 10px;
   p {
     margin: 0;
   }

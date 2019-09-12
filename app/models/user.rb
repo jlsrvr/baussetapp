@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :locations
   has_many :bookings
   has_many :beds, through: :locations
-  has_many :bookings_as_host, through: :beds, source: :bookings
+  has_many :bookings_as_host, through: :locations, source: :bookings
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
