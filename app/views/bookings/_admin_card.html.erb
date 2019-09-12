@@ -14,11 +14,11 @@
       <div class="dates">
         <div class="date">
           <p>Du:</p>
-          <p id="jour"><%= booking.start_date.strftime('%a %d %B') %></p>
+          <p id="jour"><%= I18n.l(booking.start_date, format: "%a %d %B", locale: :'fr')%></p>
         </div>
         <div class="date">
           <p>Au:</p>
-          <p id="jour"><%= booking.end_date.strftime('%a %d %B') %></p>
+          <p id="jour"><%= I18n.l(booking.end_date, format: "%a %d %B", locale: :'fr') %></p>
         </div>
       </div>
     </div> <!-- end admin-card-content -->
