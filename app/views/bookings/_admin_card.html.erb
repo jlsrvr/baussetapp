@@ -10,7 +10,7 @@
   </div> <!-- end picture area -->
   <div class="card-text">
     <div class="admin-card-content">
-      <p><%= pluralize(booking.place, 'lit') %></p>
+      <p><%= booking.place > 1 ? "#{booking.place} lits" : "#{booking.place} lit" %></p>
       <div class="dates">
         <div class="date">
           <p>Du:</p>

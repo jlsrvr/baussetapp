@@ -1,12 +1,24 @@
-<%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
-  <%= f.input :start_date %> <!-- use datepicker on here -->
-  <%= f.input :end_date %>
-  <%= f.input :place, class: "" %> <!-- make this a slider -->
-  <%= f.input :message %>
-  <%= f.submit setters[:prompt], class: "btn btn-primary" %>
-<% end %>
-<% if setters[:location] %>
-  <%= link_to "Annuler", location_path(setters[:location]) %>
-<% else %>
-  <%= link_to "Annuler", bookings_path %>
-<% end %>
+<div class="my-container">
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <div class="form-post">
+        <h1>Ta demande</h1>
+        <%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
+          <%= f.input :start_date, required: false %> <!-- use datepicker on here -->
+          <%= f.input :end_date, required: false %>
+          <%= f.input :place, collection: 1..setters[:location].no_of_places, required: false %> <!-- make this a slider -->
+          <%= f.input :message, label: "Message (optionnel)",placeholder: "Ici vont vos mots doux" %>
+          <%= f.submit setters[:prompt], class: "home-btn btn" %>
+        <% end %>
+        <% if setters[:location] %>
+          <%= link_to "Annuler", location_path(setters[:location]) %>
+        <% else %>
+          <%= link_to "Annuler", bookings_path %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
