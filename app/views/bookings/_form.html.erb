@@ -1,16 +1,22 @@
-<div class="my-container">
-</div>
-
 <div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+  <div class="row justify-content-start">
+    <div class="col-xs-12 col-sm-6">
       <div class="form-post">
         <h1>Ta demande</h1>
         <%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
-          <%= f.input :start_date, required: false %> <!-- use datepicker on here -->
-          <%= f.input :end_date, required: false %>
-          <%= f.input :place, collection: 1..setters[:location].no_of_places, required: false %> <!-- make this a slider -->
-          <%= f.input :message, label: "Message (optionnel)",placeholder: "Ici vont vos mots doux" %>
+          <!-- <div class='input-group date' id='flatpickr'> -->
+            <%= f.input :start_date,
+                        required: false %>
+          <!-- </div> -->
+          <%= f.input :end_date,
+                      required: false %>
+          <%= f.input :place,
+                      collection: 1..setters[:location].no_of_places,
+                      required: false,
+                      default: 1 %> <!-- make this a slider -->
+          <%= f.input :message,
+                      label: "Message (optionnel)",
+                      placeholder: "Ici vont tes mots doux" %>
           <%= f.submit setters[:prompt], class: "home-btn btn" %>
         <% end %>
         <% if setters[:location] %>
