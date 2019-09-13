@@ -1,0 +1,27 @@
+.form-post {
+  background: white;
+  margin-top: 25px;
+  padding: 15px 20px;
+  border-radius: 30px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #blue;
+    margin-bottom: 15px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    color: $white;
+    background-color: $blue;
+    border: none;
+    font-weight: bold;
+    justify-content: space-around;
+  }
+  #booking_message {
+    border-radius: 15px;
+    height: 100px;
+  }
+}
