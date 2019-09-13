@@ -4,8 +4,7 @@
   background-size: cover;
   color: $white;
   .home-title {
-    position: absolute;
-    top: 7%;
+    margin-top: 12%;
     display: flex;
     height: 30vh;
     flex-direction: column;
@@ -17,12 +16,10 @@
 }
 
 .home-buttons {
-  position: absolute;
-  bottom: 21%;
-  left: 50%;
   display: flex;
   flex-direction: column;
-  margin-left: -30%;
+  align-items: center;
+  margin-top: 8%;
   .home-btn {
     margin: 20px;
     flex-wrap: wrap;

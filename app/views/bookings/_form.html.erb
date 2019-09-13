@@ -1,11 +1,12 @@
 <div class="container">
-  <div class="row justify-content-start">
-    <div class="col-xs-12 col-sm-6">
+  <div class="row justify-content-center">
+    <div class="col-xs-12 col-sm-8">
       <div class="form-post">
         <h1>Ta demande</h1>
         <%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
           <!-- <div class='input-group date' id='flatpickr'> -->
             <%= f.input :start_date,
+                        as: :text,
                         required: false %>
           <!-- </div> -->
           <%= f.input :end_date,
@@ -28,3 +29,4 @@
     </div>
   </div>
 </div>
+

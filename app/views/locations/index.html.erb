@@ -1,14 +1,23 @@
 <%= content_for(:navbar_class, "navbar-home") %>
-
-<div class="banner text-center">
-  <div class="home-title">
-    <h1>Tu veux dormir chez nous?</h1>
-    <h3>Choisis où:</h3>
-  </div>
-  <div class="home-buttons">
-    <% @locations.each do |location| %>
-      <%= link_to "#{location.name}", location_path(location), class: "btn home-btn"%>
-    <% end %>
+<div class="banner">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-8">
+        <div class="home-title text-center">
+          <h1>Tu veux dormir chez nous?</h1>
+          <h3>Choisis où:</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-xs-12 col-sm-8">
+        <div class="home-buttons">
+          <% @locations.each do |location| %>
+            <%= link_to "#{location.name}", location_path(location), class: "btn home-btn"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
