@@ -6,13 +6,14 @@
         <%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
           <!-- <div class='input-group date' id='flatpickr'> -->
             <%= f.input :start_date,
-                        as: :text,
+                        # as: :text,
                         required: false %>
           <!-- </div> -->
           <%= f.input :end_date,
                       required: false %>
+          <% location = setters[:location] ? setters[:location] : setters[:booking].location %>
           <%= f.input :place,
-                      collection: 1..setters[:location].no_of_places,
+                      collection: 1..location.no_of_places,
                       required: false,
                       default: 1 %> <!-- make this a slider -->
           <%= f.input :message,
