@@ -6,10 +6,11 @@
         <%= simple_form_for [setters[:location], setters[:booking]] do |f| %>
           <!-- <div class='input-group date' id='flatpickr'> -->
             <%= f.input :start_date,
-                        # as: :text,
+                        as: :string,
                         required: false %>
           <!-- </div> -->
           <%= f.input :end_date,
+                      as: :string,
                       required: false %>
           <% location = setters[:location] ? setters[:location] : setters[:booking].location %>
           <%= f.input :place,

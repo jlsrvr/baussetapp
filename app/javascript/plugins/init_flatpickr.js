@@ -1,11 +1,13 @@
 import flatpickr from "flatpickr"
 
-require("flatpickr/dist/flatpickr.css")
+import "flatpickr/dist/themes/airbnb.css"
+import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 const initFlatpickr = () => {
   flatpickr("#booking_start_date", {
     altInput: true,
-    minDate: "today"
+    minDate: "today",
+    plugins: [new rangePlugin({ input: "#booking_end_date"})]
   });
 };
 
