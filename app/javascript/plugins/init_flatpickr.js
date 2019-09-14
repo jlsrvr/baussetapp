@@ -1,6 +1,6 @@
 import flatpickr from "flatpickr"
 
-import "flatpickr/dist/themes/airbnb.css"
+import "flatpickr/dist/flatpickr.css"
 import rangePlugin from "flatpickr/dist/plugins/rangePlugin"
 
 const initFlatpickr = () => {
