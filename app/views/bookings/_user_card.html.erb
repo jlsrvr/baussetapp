@@ -12,36 +12,33 @@
       </p>
     </div>
   </div>
-  <div class="card-text">
+  <div class="user-card-text">
     <div class="user-card-content">
       <div class="dates">
         <div class="date">
           <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
-        </div>
+        </div> <!-- end date -->
         <div class="date">
           <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
-        </div>
-      </div>
-    </div>
-    <div class="user-card-btn-position">
-      <!-- <div class="btn-card btn-modify"> -->
-      <%= link_to edit_booking_path(booking) do %>
-        <i class="far fa-edit"></i> -->
-      <% end %>
-      <!-- </div> -->
-    </div>
+        </div> <!-- end date -->
+      </div> <!-- end dates -->
+    </div> <!-- end user-card-content -->
     <div class="lits-user-card">
       <% if booking.status == "accepted" %>
         <div class="lits">
           <% booking.beds.each do |bed| %>
             <div class="lit">
               <%= bed.name %>
-            </div>
-          <% else %>
-          <p class="message-user">Tu n'as pas encore de lit</p>
+            </div> <!-- end lit -->
           <% end %>
-        </div>
+        </div> <!-- end lits -->
+      <% else %>
+        <p class="message-user">Tu n'as pas encore de lit</p>
       <% end %>
-    </div>
-  </div>
-</div>
+    </div> <!-- end lits-user-card -->
+    <%= link_to edit_booking_path(booking) do %>
+      <i class="far fa-edit"></i>
+      <p> Modifier</p>
+    <% end %>
+  </div><!-- end user-card-text -->
+</div><!-- end user-card -->
