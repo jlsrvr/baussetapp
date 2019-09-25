@@ -9,7 +9,7 @@ class BookingMailer < ApplicationMailer
     @booking = booking
 
     admins.each do |admin|
-      mail to: admin.email
+      mail to: admin.email, subject: "Demande de réservation pour #{@booking.location.name}"
     end
   end
 
@@ -21,6 +21,6 @@ class BookingMailer < ApplicationMailer
   def statusChange(booking)
     @booking = booking
 
-    mail to: booking.user.email
+    mail to: booking.user.email, subject: "Ta reservation pour #{@booking.location.name} a un nouveau statut"
   end
 end

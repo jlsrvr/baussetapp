@@ -3,7 +3,9 @@ class BookingMailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/booking_mailer/newBooking
   def newBooking
-    BookingMailer.newBooking
+    booking = Booking.last
+    admins = [User.first]
+    BookingMailer.newBooking(booking, admins)
   end
 
   # Preview this email at http://localhost:3000/rails/mailers/booking_mailer/statusChange
