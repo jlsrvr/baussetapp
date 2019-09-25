@@ -5,10 +5,12 @@ class BookingMailer < ApplicationMailer
   #
   #   en.booking_mailer.newBooking.subject
   #
-  def newBooking
-    @greeting = "Hi"
+  def newBooking(booking, admins)
+    @booking = booking
 
-    mail to: "to@example.org"
+    admins.each do |admin|
+      mail to: admin.email
+    end
   end
 
   # Subject can be set in your I18n file at config/locales/en.yml
@@ -16,9 +18,9 @@ class BookingMailer < ApplicationMailer
   #
   #   en.booking_mailer.statusChange.subject
   #
-  def statusChange
-    @greeting = "Hi"
+  def statusChange(booking)
+    @booking = booking
 
-    mail to: "to@example.org"
+    mail to: booking.user.email
   end
 end
