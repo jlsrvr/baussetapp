@@ -95,5 +95,5 @@ Rails.application.configure do
 
   # mail configiruation
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "yourapp.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "pointdechute.herokuapp.com" }
 end
