@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     @booking = current_user.bookings.build(booking_params.merge(location: @location))
     authorize @booking
     if @booking.save
+      send_new_booking_email(@booking)
       redirect_to bookings_path
     else
       render :new
@@ -77,6 +78,11 @@ class BookingsController < ApplicationController
   end
 
   private
+
+  def send_new_booking_email(booking)
+    @admins = User.where(admin: "true")
+    BookingMailer.newBooking(booking, @admins).deliver_now
+  end
 
   def set_booking
     @booking = Booking.find(params[:id])

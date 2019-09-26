@@ -12,7 +12,7 @@ puts 'user 1 created !'
 
 puts 'creating user 2 who you can send emails to..'
 user2 = User.new
-user2.email = 'frenchy.rivoire@gmail.com'
+user2.email = 'frenchy@rivoire.com'
 user2.password = 'frenchy1'
 user2.first_name = 'Julio'
 user2.last_name = 'Betham'

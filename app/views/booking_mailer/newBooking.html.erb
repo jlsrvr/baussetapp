@@ -1,0 +1,8 @@
+<h1>Nouvelle demande de reservation pour <%= @booking.location.name %></h1>
+
+<h4><%= @booking.user.first_name %> demande <%= pluralize(@booking.place, 'place') %></h4>
+
+<p>Du <%= @booking.start_date %> Au <%= @booking.end_date %></p>
+
+<p>Accepter</p>
+<p>Refuser</p>
