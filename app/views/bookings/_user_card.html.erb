@@ -13,16 +13,14 @@
     </div>
   </div>
   <div class="user-card-text">
-    <div class="user-card-content">
-      <div class="dates">
-        <div class="date">
-          <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
-        </div> <!-- end date -->
-        <div class="date">
-          <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
-        </div> <!-- end date -->
-      </div> <!-- end dates -->
-    </div> <!-- end user-card-content -->
+    <div class="dates">
+      <div class="date">
+        <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
+      </div> <!-- end date -->
+      <div class="date">
+        <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
+      </div> <!-- end date -->
+    </div> <!-- end dates -->
     <div class="lits-user-card">
       <% if booking.status == "accepted" %>
         <div class="lits">
@@ -38,6 +36,6 @@
     </div> <!-- end lits-user-card -->
     <div class="btn-card btn-modify">
       <%= link_to "Modifier", edit_booking_path(booking) %>
-    </div>
+    </div><!-- end btn-card btn-modify -->
   </div><!-- end user-card-text -->
 </div><!-- end user-card -->

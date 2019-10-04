@@ -99,4 +99,25 @@
       align-items: center;
     }
   }
+  .user-card-text {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    height: 100%;
+    .btn-card {
+      position: absolute;
+      top: 30px;
+      right: 10px;
+    }
+    .lits-user-card{
+      // position: absolute;
+      align-self: flex-end;
+    }
+    .dates {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+    }
+  }
 }
