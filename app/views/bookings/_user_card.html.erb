@@ -36,9 +36,8 @@
         <p class="message-user">Tu n'as pas encore de lit</p>
       <% end %>
     </div> <!-- end lits-user-card -->
-    <%= link_to edit_booking_path(booking) do %>
-      <i class="far fa-edit"></i>
-      <p> Modifier</p>
-    <% end %>
+    <div class="btn-card btn-modify">
+      <%= link_to "Modifier", edit_booking_path(booking) %>
+    </div>
   </div><!-- end user-card-text -->
 </div><!-- end user-card -->
