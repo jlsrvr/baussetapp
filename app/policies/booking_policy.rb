@@ -1,7 +1,11 @@
 class BookingPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      user.admin ? scope.where('start_date >= ?', Date.current) : scope.where(user: user).where('start_date >= ?', Date.current)
+      if user.admin
+        scope.where('end_date >= ?', Date.current)
+      else
+        scope.where(user: user).where('end_date >= ?', Date.current)
+      end
     end
   end
 
