@@ -13,32 +13,33 @@
     </div>
   </div>
   <div class="user-card-text">
-    <div class="user-card-content">
-      <div class="dates">
-        <div class="date">
-          <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
-        </div> <!-- end date -->
-        <div class="date">
-          <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
-        </div> <!-- end date -->
-      </div> <!-- end dates -->
-    </div> <!-- end user-card-content -->
+    <div class="dates">
+      <div class="date">
+        <p>Du: <%= booking.start_date.strftime('%a %d %b') %></p>
+      </div> <!-- end date -->
+      <div class="date">
+        <p>Au: <%= booking.end_date.strftime('%a %d %b') %></p>
+      </div> <!-- end date -->
+    </div> <!-- end dates -->
     <div class="lits-user-card">
       <% if booking.status == "accepted" %>
-        <div class="lits">
+        <div class="message-user-accepter" id="dropdownlits" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <p>Tes lits</p>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="dropdown-lits dropdown-menu" aria-labelledby="dropdownlits">
           <% booking.beds.each do |bed| %>
             <div class="lit">
               <%= bed.name %>
             </div> <!-- end lit -->
           <% end %>
-        </div> <!-- end lits -->
+        </div> <!-- end dropdown-lits dropdown-menu -->
       <% else %>
         <p class="message-user">Tu n'as pas encore de lit</p>
       <% end %>
     </div> <!-- end lits-user-card -->
-    <%= link_to edit_booking_path(booking) do %>
-      <i class="far fa-edit"></i>
-      <p> Modifier</p>
-    <% end %>
+    <div class="btn-card btn-modify">
+      <%= link_to "Modifier", edit_booking_path(booking) %>
+    </div><!-- end btn-card btn-modify -->
   </div><!-- end user-card-text -->
 </div><!-- end user-card -->
