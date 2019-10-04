@@ -111,13 +111,27 @@
       right: 10px;
     }
     .lits-user-card{
-      // position: absolute;
+      position: relative;
       align-self: flex-end;
     }
     .dates {
       position: absolute;
       top: 20%;
       left: 20%;
+    }
+    .message-user-accepter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      & p{
+        line-height: 10px
+      }
+    }
+    .dropdown-lits {
+      position: absolute;
+      border: none;
+      border-radius: 0px 0px 10px 10px;
+      background-color: $light-grey
     }
   }
 }

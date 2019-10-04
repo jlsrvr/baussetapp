@@ -23,13 +23,17 @@
     </div> <!-- end dates -->
     <div class="lits-user-card">
       <% if booking.status == "accepted" %>
-        <div class="lits">
+        <div class="message-user-accepter" id="dropdownlits" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <p>Tes lits</p>
+          <i class="fas fa-angle-down"></i>
+        </div>
+        <div class="dropdown-lits dropdown-menu" aria-labelledby="dropdownlits">
           <% booking.beds.each do |bed| %>
             <div class="lit">
               <%= bed.name %>
             </div> <!-- end lit -->
           <% end %>
-        </div> <!-- end lits -->
+        </div> <!-- end dropdown-lits dropdown-menu -->
       <% else %>
         <p class="message-user">Tu n'as pas encore de lit</p>
       <% end %>
