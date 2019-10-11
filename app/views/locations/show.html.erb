@@ -1,4 +1,5 @@
 <%= content_for(:navbar_title, "#{@location.name}") %>
+<%= image_tag('calendar_banner.jpg', id: "my-special-banner") %>
 <div class="my-container">
   <div class="calendar-container">
     <div id="calendar" class="text-center" data-events="<%= @events.to_json %>"></div>
