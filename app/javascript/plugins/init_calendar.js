@@ -8,14 +8,18 @@ const initFullCalendar = () => {
   $('#calendar').fullCalendar({
     locale: "fr",
     height: "parent",
-    handleWindowResize: true,
+    handleWindowResize: false,
     buttonText: {
-      today:    'Aujourd\'hui',
+      today:    'mtn',
+    },
+    header: {
+      left:   '',
+      center: 'prev title next',
+      right:  '',
     },
     fixedWeekCount: false,
-    eventSources: [{
-      events: events,
-    }]
+    events: events,
+    eventColor: '$blue',
   })};
 };
 
