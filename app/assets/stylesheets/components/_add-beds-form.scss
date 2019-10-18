@@ -10,7 +10,8 @@
 }
 
 .bed-choice {
-  background: #b7b7b7;
+  background: $blue;
+  color: $white;
   padding: 20px;
   border-radius: 5px;
   opacity: .4;
@@ -25,7 +26,7 @@
     cursor: pointer;
   }
   &.active {
-  background: grey;
+  background: $blue;
   color: white;
   opacity: 1;
   }
