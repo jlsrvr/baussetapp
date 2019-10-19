@@ -10,7 +10,7 @@
             <div class="bed-choices">
               <% @booking.location.beds.each do |bed| %>
                 <input type="checkbox" class="hidden" value="<%= bed.id %>" name="booking[bed_ids]ids[]" id="booking_bed_ids_<%= bed.id %>">
-                <label for="booking_bed_ids_<%= bed.id %>" class="bed-choice">
+                <label for="booking_bed_ids_<%= bed.id %>" class="bed-choice" bed_size="<%= bed.size %>">
                   <%= bed.name %>
                 </label>
               <% end %>
