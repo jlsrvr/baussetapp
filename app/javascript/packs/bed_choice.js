@@ -14,14 +14,20 @@ const countNumberSpacesAssigned = (chosenBeds) => {
   return sumArray(placesAssigned)
 }
 
+const displayCounter = (selected) => {
+  const display = document.getElementById('bed-counter');
+  const placesAsked = display.attributes.data.value
+  display.textContent = `${selected}/${placesAsked}`
+}
+
 const updateBedsChosen = () => {
-  const display = document.querySelector('#bed-counter');
   const beds = document.querySelectorAll('.bed-choice');
   beds.forEach((bed) => {
     bed.addEventListener('click', (event) => {
       bed.classList.toggle("active");
       const chosenBeds = document.querySelectorAll('.active');
-      console.log(countNumberSpacesAssigned(chosenBeds));
+      const selected = countNumberSpacesAssigned(chosenBeds)
+      displayCounter(selected);
     })
   })
 }
