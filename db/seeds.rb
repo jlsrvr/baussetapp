@@ -92,46 +92,44 @@ salon.save!
 
 puts 'All 8 beds have been made at Rue Bausset'
 
-puts "Creating two bookings"
+puts 'Making the beds at Les Collines Basques'
 
-booking = Booking.new
-booking.start_date = Date.new(2019, 12, 8)
-booking.end_date = Date.new(2019, 12, 15)
-booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
-booking.user = User.find(2)
-booking.location = Location.first
-booking.place = 4
-booking.save!
+puts 'Creating le Dortoir'
+counter = 1
+5.times do
+  dortoir = Bed.new
+  dortoir.size = 1
+  dortoir.location = Location.find(2)
+  dortoir.name = "Dortoir#{counter}"
+  dortoir.save!
+  puts dortoir.name
+  counter += 1
+end
+puts '5 lits dans le Dortoir'
 
-puts "Booking for #{booking.user.first_name} created in the future(#{booking.start_date})"
+colors = %w[Rouge Blue Jaune Orange]
+colors.each do |color|
+  chambre = Bed.new
+  chambre.size = 2
+  chambre.location = Location.find(2)
+  chambre.name = "Chambre #{color}"
+  chambre.save!
+  puts chambre.name
+end
+puts '4 chambres a Ondokoa'
 
-booking = Booking.new
-booking.start_date = Date.new(2019, 8, 8)
-booking.end_date = Date.new(2019, 8, 15)
-booking.message = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste, vero."
-booking.user = User.find(4)
-booking.location = Location.first
-booking.place = 3
-booking.status = "accepted"
-booking.save!
+counter = 1
+2.times do
+  roulotte = Bed.new
+  roulotte.size = 2
+  roulotte.location = Location.find(2)
+  roulotte.name = "Roulotte #{counter}"
+  roulotte.save!
+  puts roulotte.name
+  counter += 1
+end
 
-puts "Booking for #{booking.user.first_name} created in the future(#{booking.start_date})"
-
-puts "Creating a bed combinations for #{booking.user.first_name}"
-
-combination = Combination.new
-combination.booking = Booking.find(2)
-combination.bed = Bed.find(2)
-combination.save!
-
-puts "tu dors dans #{combination.bed.name}"
-
-combination = Combination.new
-combination.booking = Booking.find(2)
-combination.bed = Bed.find(3)
-combination.save!
-
-puts "tu dors dans #{combination.bed.name}"
+puts "Une roulotte 2 chambre"
 
 puts 'You\'re ready to play around with your db'
 
