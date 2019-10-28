@@ -29,9 +29,10 @@ class BookingsController < ApplicationController
 
   def update
     if @booking.update(booking_params)
-      if !current_user.admin
+      unless current_user.admin
         @booking.mark_as("pending")
         @booking.save!
+        Combination.where(booking: @booking).destroy_all
       end
       redirect_to bookings_path
     else
